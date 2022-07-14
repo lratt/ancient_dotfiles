@@ -1,0 +1,29 @@
+packages:
+  # lsp
+  neovim/nvim-lspconfig: {}
+  williamboman/nvim-lsp-installer: {}
+
+  # completion
+  hrsh7th/cmp-nvim-lsp: {}
+  hrsh7th/nvim-cmp: {}
+  L3MON4D3/LuaSnip: {}
+  saadparwaiz1/cmp_luasnip: {}
+
+  # fuzzyfinder
+  vijaymarupudi/nvim-fzf: {}
+  vijaymarupudi/nvim-fzf-commands:
+    rename: fzf-commands
+
+  # rust
+  simrat39/rust-tools.nvim: {}
+  rust-lang/rust.vim: {}
+  cespare/vim-toml: {}
+
+  # misc
+  nvim-treesitter/nvim-treesitter: {}
+  lukas-reineke/indent-blankline.nvim: {}
+  b3nj5m1n/kommentary: {}
+  windwp/nvim-autopairs: {}
+
+  rebelot/kanagawa.nvim: {}
+  kyazdani42/nvim-tree.lua: {}
