@@ -15,6 +15,7 @@ cargo_init() {
   done
 
   # install nvim package manager
+  rm -rf /tmp/npk
   git clone https://github.com/lratt/npk.git /tmp/npk && cargo install --path /tmp/npk
 }
 
