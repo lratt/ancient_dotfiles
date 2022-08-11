@@ -1,7 +1,7 @@
 #!/bin/sh
 
 brew_init() {
-  brew bundle --file="$HOME/Brewfile"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew bundle --file="$HOME/Brewfile"
 }
 
 rustup_init() {
