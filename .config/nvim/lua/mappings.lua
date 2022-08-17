@@ -8,11 +8,11 @@ vim.cmd([[command! -nargs=1 Rg call luaeval('require("fzf-commands").rg(_A)', <f
 local opts = {noremap = true}
 
 -- fuzzy finding
-vim.api.nvim_set_keymap("n", "<leader><leader>", ':lua require("fzf-commands").files()<cr>', opts)
-vim.api.nvim_set_keymap("n", "<leader>b", ':lua require("fzf-commands").bufferpicker()<cr>', opts)
+vim.api.nvim_set_keymap("n", "<leader><leader>", ':lua require("fzf-lua").files()<cr>', opts)
+vim.api.nvim_set_keymap("n", "<leader>b", ':lua require("fzf-lua").buffers()<cr>', opts)
 vim.api.nvim_set_keymap("n", "<leader>f", ':NvimTreeToggle<cr>', opts)
-vim.api.nvim_set_keymap("n", "<leader>c", ':lua require("fzf-commands").colorschemes()<cr>', opts)
-vim.api.nvim_set_keymap("n", "<leader>rg", ":<c-u>Rg<space>", opts) -- ripgrep in files
+vim.api.nvim_set_keymap("n", "<leader>c", ':lua require("fzf-lua").colorschemes()<cr>', opts)
+vim.api.nvim_set_keymap("n", "<leader>rg", ':lua require("fzf-lua").live_grep_native()<cr>', opts)
 
 -- buffers
 vim.api.nvim_set_keymap("n", "<leader>bl", "<C-^>", opts) -- last buffer

@@ -1,7 +1,8 @@
 packages:
   # lsp
   neovim/nvim-lspconfig: {}
-  williamboman/nvim-lsp-installer: {}
+  williamboman/mason.nvim: {}
+  williamboman/mason-lspconfig.nvim: {}
 
   # completion
   hrsh7th/cmp-nvim-lsp: {}
@@ -10,9 +11,7 @@ packages:
   saadparwaiz1/cmp_luasnip: {}
 
   # fuzzyfinder
-  vijaymarupudi/nvim-fzf: {}
-  vijaymarupudi/nvim-fzf-commands:
-    rename: fzf-commands
+  ibhagwan/fzf-lua: {}
 
   # rust
   simrat39/rust-tools.nvim: {}
@@ -21,7 +20,6 @@ packages:
 
   # misc
   nvim-treesitter/nvim-treesitter: {}
-  lukas-reineke/indent-blankline.nvim: {}
   b3nj5m1n/kommentary: {}
   windwp/nvim-autopairs: {}
 
