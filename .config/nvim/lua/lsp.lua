@@ -1,5 +1,4 @@
 local nvim_lsp = require("lspconfig")
-local lsp_installer = require("nvim-lsp-installer")
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -31,32 +30,38 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lsp_installer.on_server_ready(function(server)
-    local ls_opts = {
-        on_attach = on_attach,
-        capabilities = capabilities
-    }
+local mason_lspconfig = require('mason-lspconfig')
 
-    if server.name == "rust_analyzer" then
-        -- opts.root_dir = function() ... end
-        ls_opts.settings = {
-            checkOnSave = {
-                command = "clippy"
-            },
-            assist = {
-                importGranularity = "crate",
-  	            importGroup = false
-            },
-            cargo = {
-                loadOutDirsFromCheck = true
-            },
-            procMacro = {
-                enable = true
+mason_lspconfig.setup({
+    ensure_installed = { "sumneko_lua", "rust_analyzer", "volar", "tsserver", "jsonls", "kotlin_language_server", "gopls", "sqls", "yamlls" },
+    automatic_installation = true
+})
+
+mason_lspconfig.setup_handlers({
+    function (server_name)
+        nvim_lsp[server_name].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+        }
+    end,
+    ['rust_analyzer'] = function()
+        nvim_lsp.rust_analyzer.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+                ["rust-analyzer"] = {
+                    checkOnSave = {
+                        command = "clippy"
+                    },
+                    cargo = {
+                        loadOutDirsFromCheck = true
+                    },
+                    procMacro = {
+                        enable = true
+                    }
+                }
             }
         }
     end
+})
 
-    -- This setup() function is exactly the same as lspconfig's setup function.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    server:setup(ls_opts)
-end)
