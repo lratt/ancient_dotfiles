@@ -1,0 +1,12 @@
+[user]
+    name = lratt
+    email = lratt@mailbox.org
+
+[alias]
+    c = commit
+    l = log --oneline --graph --all
+    s = status --short --branch
+    ds = diff --stat
+
+[pull]
+    rebase = true
