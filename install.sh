@@ -10,8 +10,8 @@ rustup_init() {
 }
 
 cargo_init() {
-  for sub in "whatfeatures" "play" "watch" "edit"; do
-    cargo install "cargo-$sub"
+  for crate in "cargo-watch" "cargo-edit" "arti"; do
+    cargo install $crate   
   done
 
   # install nvim package manager
