@@ -11,7 +11,7 @@ rustup_init() {
 
 cargo_init() {
   for crate in "cargo-watch" "cargo-edit" "arti"; do
-    cargo install $crate   
+    cargo install $crate
   done
 
   # install nvim package manager
